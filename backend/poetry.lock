@@ -174,6 +174,45 @@ files = [
 ]
 
 [[package]]
+name = "mysql-connector-python"
+version = "8.1.0"
+description = "MySQL driver written in Python"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "mysql-connector-python-8.1.0.tar.gz", hash = "sha256:78a43eeb2b845986dc769ab611e3c480991c8037c94aee67ee6842d1f7e961a9"},
+    {file = "mysql_connector_python-8.1.0-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:4f58e1d41b3ba04281099884421c3a63589204b2cf40e473c5dbebbc26971017"},
+    {file = "mysql_connector_python-8.1.0-cp310-cp310-macosx_12_0_x86_64.whl", hash = "sha256:8062c11619bc48baf9ada3f85d85832aec5e57359eb11ed9e7d75ddcce81721a"},
+    {file = "mysql_connector_python-8.1.0-cp310-cp310-manylinux_2_17_aarch64.whl", hash = "sha256:5f1cdf9d3ed2f3c70a91c4b94d3ab3b2890c477a61b4085bb89d2275c50e1e3d"},
+    {file = "mysql_connector_python-8.1.0-cp310-cp310-manylinux_2_17_x86_64.whl", hash = "sha256:556f83cfc3e1f3e3db0080bb19ca50650815551ef7e10518053fe2ba76d2e59e"},
+    {file = "mysql_connector_python-8.1.0-cp310-cp310-win_amd64.whl", hash = "sha256:dd0005e9b7e54c700745416ecf26435c69687d5234eef9ff11cf85a7d76945e2"},
+    {file = "mysql_connector_python-8.1.0-cp311-cp311-macosx_12_0_arm64.whl", hash = "sha256:1d292d8ee08a3e0103f3e9aba81f292c12c244c1d5345168375bf6842b2b3e9b"},
+    {file = "mysql_connector_python-8.1.0-cp311-cp311-macosx_12_0_x86_64.whl", hash = "sha256:64f4d7f7c60e2fe5a01d9e7915634d05a350bd866332ea4eab281b29db190e2b"},
+    {file = "mysql_connector_python-8.1.0-cp311-cp311-manylinux_2_17_aarch64.whl", hash = "sha256:7f1cbc06411115c318af775291386ed1494302e05b5c45da73f01593c0827bc1"},
+    {file = "mysql_connector_python-8.1.0-cp311-cp311-manylinux_2_17_x86_64.whl", hash = "sha256:89151683654748f4de59cd4cf04102b6180976923f1db9921b87cff2c2da7b1d"},
+    {file = "mysql_connector_python-8.1.0-cp311-cp311-win_amd64.whl", hash = "sha256:f36a1a308d0d0d6202fea2e51741b5265f60206be331cfbb32f2f5bf62a20359"},
+    {file = "mysql_connector_python-8.1.0-cp38-cp38-macosx_12_0_x86_64.whl", hash = "sha256:f8160777788c7e561f9d7f93eff45776031c83aa2f02a0d8c138d8f9c9bd088e"},
+    {file = "mysql_connector_python-8.1.0-cp38-cp38-manylinux_2_17_aarch64.whl", hash = "sha256:e3a2c2b398af1c5f0cbc1b1935f98bb5a7da4f178b2e73f0851872fbb37e66cc"},
+    {file = "mysql_connector_python-8.1.0-cp38-cp38-manylinux_2_17_x86_64.whl", hash = "sha256:f2ac6d43fc5a01e574fcc2a6b732cc2374e6ce576ee039cc2051f18d2daafd6d"},
+    {file = "mysql_connector_python-8.1.0-cp38-cp38-win_amd64.whl", hash = "sha256:22259479bdba53e0eb64325d5d97d7ecae35e729a8b39822c16729476ba2cd92"},
+    {file = "mysql_connector_python-8.1.0-cp39-cp39-macosx_12_0_arm64.whl", hash = "sha256:816b46c9dc250a0e59d11a902e187be190dae992a2b802512b888930db380487"},
+    {file = "mysql_connector_python-8.1.0-cp39-cp39-macosx_12_0_x86_64.whl", hash = "sha256:90adf52cdb25a7adc18da0cc6c5454709598af0e87343e39ab2c11d7dc5aaf34"},
+    {file = "mysql_connector_python-8.1.0-cp39-cp39-manylinux_2_17_aarch64.whl", hash = "sha256:76432810ee58abda81e0a34666f86aba69a7ded58f164a1d19835dba70b1451b"},
+    {file = "mysql_connector_python-8.1.0-cp39-cp39-manylinux_2_17_x86_64.whl", hash = "sha256:9cc256eaf55a7dd706ae514bebb863d3e426bd12686b88e284bdad6c37bf6dde"},
+    {file = "mysql_connector_python-8.1.0-cp39-cp39-win_amd64.whl", hash = "sha256:40e3b5d60dbc5446ccd1901eb3db4c9b1ad07a490f4e0fc96e7ac53a6fe9b7bc"},
+    {file = "mysql_connector_python-8.1.0-py2.py3-none-any.whl", hash = "sha256:7abe27b88ae1354433713fc289ed663cc04f7b75ea818a2b18067c3a736b0975"},
+]
+
+[package.dependencies]
+protobuf = ">=4.21.1,<=4.21.12"
+
+[package.extras]
+compression = ["lz4 (>=2.1.6,<=4.3.2)", "zstandard (>=0.12.0,<=0.19.0)"]
+dns-srv = ["dnspython (>=1.16.0,<=2.3.0)"]
+gssapi = ["gssapi (>=1.6.9,<=1.8.2)"]
+opentelemetry = ["Deprecated (>=1.2.6)", "typing-extensions (>=3.7.4)", "zipp (>=0.5)"]
+
+[[package]]
 name = "mysqlclient"
 version = "2.2.0"
 description = "Python interface to MySQL"
@@ -187,6 +226,29 @@ files = [
     {file = "mysqlclient-2.2.0-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:955dba905a7443ce4788c63fdb9f8d688316260cf60b20ff51ac3b1c77616ede"},
     {file = "mysqlclient-2.2.0-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:530ece9995a36cadb6211b9787f0c9e05cdab6702549bdb4236af5e9b535ed6a"},
     {file = "mysqlclient-2.2.0.tar.gz", hash = "sha256:04368445f9c487d8abb7a878e3d23e923e6072c04a6c320f9e0dc8a82efba14e"},
+]
+
+[[package]]
+name = "protobuf"
+version = "4.21.12"
+description = ""
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "protobuf-4.21.12-cp310-abi3-win32.whl", hash = "sha256:b135410244ebe777db80298297a97fbb4c862c881b4403b71bac9d4107d61fd1"},
+    {file = "protobuf-4.21.12-cp310-abi3-win_amd64.whl", hash = "sha256:89f9149e4a0169cddfc44c74f230d7743002e3aa0b9472d8c28f0388102fc4c2"},
+    {file = "protobuf-4.21.12-cp37-abi3-macosx_10_9_universal2.whl", hash = "sha256:299ea899484ee6f44604deb71f424234f654606b983cb496ea2a53e3c63ab791"},
+    {file = "protobuf-4.21.12-cp37-abi3-manylinux2014_aarch64.whl", hash = "sha256:d1736130bce8cf131ac7957fa26880ca19227d4ad68b4888b3be0dea1f95df97"},
+    {file = "protobuf-4.21.12-cp37-abi3-manylinux2014_x86_64.whl", hash = "sha256:78a28c9fa223998472886c77042e9b9afb6fe4242bd2a2a5aced88e3f4422aa7"},
+    {file = "protobuf-4.21.12-cp37-cp37m-win32.whl", hash = "sha256:3d164928ff0727d97022957c2b849250ca0e64777ee31efd7d6de2e07c494717"},
+    {file = "protobuf-4.21.12-cp37-cp37m-win_amd64.whl", hash = "sha256:f45460f9ee70a0ec1b6694c6e4e348ad2019275680bd68a1d9314b8c7e01e574"},
+    {file = "protobuf-4.21.12-cp38-cp38-win32.whl", hash = "sha256:6ab80df09e3208f742c98443b6166bcb70d65f52cfeb67357d52032ea1ae9bec"},
+    {file = "protobuf-4.21.12-cp38-cp38-win_amd64.whl", hash = "sha256:1f22ac0ca65bb70a876060d96d914dae09ac98d114294f77584b0d2644fa9c30"},
+    {file = "protobuf-4.21.12-cp39-cp39-win32.whl", hash = "sha256:27f4d15021da6d2b706ddc3860fac0a5ddaba34ab679dc182b60a8bb4e1121cc"},
+    {file = "protobuf-4.21.12-cp39-cp39-win_amd64.whl", hash = "sha256:237216c3326d46808a9f7c26fd1bd4b20015fb6867dc5d263a493ef9a539293b"},
+    {file = "protobuf-4.21.12-py2.py3-none-any.whl", hash = "sha256:a53fd3f03e578553623272dc46ac2f189de23862e68565e83dde203d41b76fc5"},
+    {file = "protobuf-4.21.12-py3-none-any.whl", hash = "sha256:b98d0148f84e3a3c569e19f52103ca1feacdac0d2df8d6533cf983d1fda28462"},
+    {file = "protobuf-4.21.12.tar.gz", hash = "sha256:7cd532c4566d0e6feafecc1059d04c7915aec8e182d1cf7adee8b24ef1e2e6ab"},
 ]
 
 [[package]]
@@ -360,12 +422,6 @@ files = [
     {file = "SQLAlchemy-2.0.21-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:b69f1f754d92eb1cc6b50938359dead36b96a1dcf11a8670bff65fd9b21a4b09"},
     {file = "SQLAlchemy-2.0.21-cp311-cp311-win32.whl", hash = "sha256:af520a730d523eab77d754f5cf44cc7dd7ad2d54907adeb3233177eeb22f271b"},
     {file = "SQLAlchemy-2.0.21-cp311-cp311-win_amd64.whl", hash = "sha256:141675dae56522126986fa4ca713739d00ed3a6f08f3c2eb92c39c6dfec463ce"},
-    {file = "SQLAlchemy-2.0.21-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:56628ca27aa17b5890391ded4e385bf0480209726f198799b7e980c6bd473bd7"},
-    {file = "SQLAlchemy-2.0.21-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:db726be58837fe5ac39859e0fa40baafe54c6d54c02aba1d47d25536170b690f"},
-    {file = "SQLAlchemy-2.0.21-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:632784f7a6f12cfa0e84bf2a5003b07660addccf5563c132cd23b7cc1d7371a9"},
-    {file = "SQLAlchemy-2.0.21-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:2a1f7ffac934bc0ea717fa1596f938483fb8c402233f9b26679b4f7b38d6ab6e"},
-    {file = "SQLAlchemy-2.0.21-cp312-cp312-win32.whl", hash = "sha256:bfece2f7cec502ec5f759bbc09ce711445372deeac3628f6fa1c16b7fb45b682"},
-    {file = "SQLAlchemy-2.0.21-cp312-cp312-win_amd64.whl", hash = "sha256:526b869a0f4f000d8d8ee3409d0becca30ae73f494cbb48801da0129601f72c6"},
     {file = "SQLAlchemy-2.0.21-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:7614f1eab4336df7dd6bee05bc974f2b02c38d3d0c78060c5faa4cd1ca2af3b8"},
     {file = "SQLAlchemy-2.0.21-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d59cb9e20d79686aa473e0302e4a82882d7118744d30bb1dfb62d3c47141b3ec"},
     {file = "SQLAlchemy-2.0.21-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a95aa0672e3065d43c8aa80080cdd5cc40fe92dc873749e6c1cf23914c4b83af"},
@@ -470,4 +526,4 @@ standard = ["colorama (>=0.4)", "httptools (>=0.5.0)", "python-dotenv (>=0.13)",
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "8cfd0847c5e0cfd0e37fc7dbd274749f006ff966c1bc9800d1538e49c194ff71"
+content-hash = "560cec02958cf3a40aac83828949db12c4f005bdfca1a90dd27c681ce8292d8c"

@@ -11,4 +11,4 @@ class Ingredient(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
-    recipes = relationship("Recipe", secondary=IngredientsAndRecipes.__table__, back_populates="ingredients")
+    recipe_associations = relationship("IngredientsAndRecipes", back_populates="ingredient")

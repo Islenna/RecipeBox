@@ -6,6 +6,8 @@ from typing import List
 from config.database import get_db, SessionLocal
 from models.Recipe import Recipe as RecipeModel
 from schemas.recipe_schemas import RecipeCreate, RecipeResponse
+from models.relationships.ingredients_and_recipes import IngredientsAndRecipes
+from utils.data_conversion import convert_recipe_to_response
 
 
 router = APIRouter()
@@ -88,13 +90,14 @@ def delete_recipe(recipe_id: int, db: Session = Depends(get_db)):
 
     return db_recipe
 
-#Get a recipe, its tags, and its steps:
-@router.get("/recipe/{recipe_id}/tags-and-steps", response_model=RecipeResponse)
-def get_recipe_tags_and_steps(recipe_id: int, db: Session = Depends(get_db)):
+#Get all ingredients, quantity, units, tags, and steps.
+@router.get("/recipe/{recipe_id}/display", response_model=RecipeResponse)
+def get_recipe_display(recipe_id: int, db: Session = Depends(get_db)):
     db_recipe = (
         db.query(RecipeModel)
         .options(joinedload(RecipeModel.tags))
         .options(joinedload(RecipeModel.steps))
+        .options(joinedload(RecipeModel.ingredient_associations).joinedload(IngredientsAndRecipes.ingredient))
         .filter(RecipeModel.id == recipe_id)
         .first()
     )
@@ -102,4 +105,7 @@ def get_recipe_tags_and_steps(recipe_id: int, db: Session = Depends(get_db)):
     if not db_recipe:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Recipe not found")
 
-    return db_recipe
+
+    response_data = convert_recipe_to_response(db_recipe)
+    
+    return response_data

@@ -28,7 +28,7 @@ class Recipe(Base):
     description = Column(String(255))
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
-    ingredients = relationship("Ingredient", secondary=IngredientsAndRecipes.__table__, back_populates="recipes")
+    ingredient_associations = relationship("IngredientsAndRecipes", back_populates="recipe")
     tags = relationship("Tag", secondary=RecipeTags.__table__, back_populates="recipes")
     steps = relationship("Step", back_populates="recipe")
 

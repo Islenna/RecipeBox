@@ -16,3 +16,14 @@ class IngredientResponse(IngredientBase):
 
     class Config:
         orm_mode = True
+
+class RecipeIngredientResponse(IngredientResponse):
+    quantity: float
+    unit: str
+
+    class Config:
+        orm_mode = True
+
+class AddIngredientToRecipe(BaseModel):
+    quantity: float
+    unit: str

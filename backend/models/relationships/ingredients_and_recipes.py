@@ -1,5 +1,5 @@
 from sqlalchemy import Table, Column, String, Float, Integer, ForeignKey, CheckConstraint
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, backref
 from config.database import Base
 
 class IngredientsAndRecipes(Base):
@@ -10,6 +10,9 @@ class IngredientsAndRecipes(Base):
     quantity = Column(Float, default=1)
     unit = Column(String(255), default="")
 
+    recipe = relationship("Recipe", back_populates="ingredient_associations")
+    ingredient = relationship("Ingredient")
+    
     __table_args__ = (
         CheckConstraint(quantity > 0, name='check_quantity_positive'),
     )

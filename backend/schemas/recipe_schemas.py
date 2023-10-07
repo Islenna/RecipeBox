@@ -1,7 +1,7 @@
 from pydantic import BaseModel, validator
 from datetime import datetime
 from typing import Optional, List, Union
-from schemas.ingredient_schemas import IngredientResponse
+from schemas.ingredient_schemas import IngredientResponse, RecipeIngredientResponse
 from models.Recipe import RecipeType  
 from schemas.tag_schemas import TagResponse
 from schemas.step_schemas import StepResponse
@@ -28,8 +28,7 @@ class RecipeResponse(RecipeBase):
     updated_at: Optional[datetime] = None
     tags: List[TagResponse]
     steps: List[StepResponse]
-
-
+    ingredients: Optional[List[RecipeIngredientResponse]] = []
 
     class Config:
         orm_mode = True

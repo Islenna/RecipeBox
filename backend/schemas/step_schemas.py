@@ -9,9 +9,11 @@ class StepBase(BaseModel):
 class StepCreate(StepBase):
     pass
 
-class StepResponse(StepBase):
+class StepResponse(BaseModel):
     id: int
-    created_at: Optional[datetime] = None
+    sequence: int
+    description: str
+    created_at: datetime
     updated_at: Optional[datetime] = None
 
     class Config:

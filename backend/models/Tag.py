@@ -10,4 +10,4 @@ class Tag(Base):
     name = Column(String(255), unique=True, index=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
-    recipes = relationship("Recipe", secondary=RecipeTags, back_populates="tags")
+    recipes = relationship("Recipe", secondary=RecipeTags.__table__, back_populates="tags")

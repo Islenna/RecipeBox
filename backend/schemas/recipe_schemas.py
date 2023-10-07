@@ -4,7 +4,7 @@ from typing import Optional, List, Union
 from schemas.ingredient_schemas import IngredientResponse
 from models.Recipe import RecipeType  
 from schemas.tag_schemas import TagResponse
-
+from schemas.step_schemas import StepResponse
 
 class RecipeBase(BaseModel):
     name: str
@@ -27,6 +27,7 @@ class RecipeResponse(RecipeBase):
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
     tags: List[TagResponse]
+    steps: List[StepResponse]
 
 
 

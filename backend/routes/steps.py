@@ -7,33 +7,28 @@ from schemas.step_schemas import StepCreate, StepResponse, StepUpdate
 
 router = APIRouter()
 
-# Create a new step
-@router.post("/steps/new", response_model=List[StepResponse], status_code=status.HTTP_201_CREATED)
-def create_steps(steps: List[StepCreate], db: Session = Depends(get_db)):
-    # Create a list to store the created steps
-    created_steps = []
 
-    for step in steps:
-        # Check if the step name already exists
-        existing_step = db.query(StepModel).filter_by(name=step.name).first()
-        if existing_step:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Step with this name already exists")
+@router.post("/steps/new/{recipe_id}", response_model=StepResponse, status_code=status.HTTP_201_CREATED)
+def create_step(recipe_id: int, step: StepCreate, db: Session = Depends(get_db)):
+    print("Recipe ID:", recipe_id)
+    
+    # Check if the step number already exists for the given recipe
+    existing_step = db.query(StepModel).filter_by(sequence=step.step_number, recipe_id=recipe_id).first()
+    if existing_step:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Step with this number already exists for this recipe")
 
-        # If the step name is unique, create the new step
-        db_step = StepModel(name=step.name)
+    # Create the new step associated with the specified recipe
+    db_step = StepModel(sequence=step.step_number, description=step.description, recipe_id=recipe_id)
+    print("Created Step:", db_step)
 
-        # Add the step to the database session
-        db.add(db_step)
-        created_steps.append(db_step)
-
-    # Commit all the changes to the database
+    # Add the step to the database session
+    db.add(db_step)
     db.commit()
+    
+    print("Step committed to the database")
 
-    # Refresh all the created steps to get their updated information
-    for db_step in created_steps:
-        db.refresh(db_step)
+    return db_step
 
-    return created_steps
 
 # Update multiple steps
 @router.put("/steps/update", response_model=List[StepResponse])

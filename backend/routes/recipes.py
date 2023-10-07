@@ -88,13 +88,14 @@ def delete_recipe(recipe_id: int, db: Session = Depends(get_db)):
 
     return db_recipe
 
-# Get a recipe along with its associated tags
-@router.get("/recipe/{recipe_id}/with_tags", response_model=RecipeResponse)
-def get_recipe_with_tags(recipe_id: int, db: Session = Depends(get_db)):
+#Get a recipe, its tags, and its steps:
+@router.get("/recipe/{recipe_id}/tags-and-steps", response_model=RecipeResponse)
+def get_recipe_tags_and_steps(recipe_id: int, db: Session = Depends(get_db)):
     db_recipe = (
         db.query(RecipeModel)
-        .filter(RecipeModel.id == recipe_id)
         .options(joinedload(RecipeModel.tags))
+        .options(joinedload(RecipeModel.steps))
+        .filter(RecipeModel.id == recipe_id)
         .first()
     )
 

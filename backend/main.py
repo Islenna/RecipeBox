@@ -4,6 +4,7 @@ from config.database import Base, engine
 from models.Recipe import Recipe
 from models.Ingredient import Ingredient
 from models.Tag import Tag
+from models.Step import Step
 
 
 app = FastAPI()

@@ -16,5 +16,5 @@ class Step(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
-    recipe_id = Column(Integer, ForeignKey("recipes.id"))
-    recipes = relationship("Recipe", secondary=RecipeSteps, back_populates="steps")
+    recipe_id = Column(Integer, ForeignKey("recipes.id"), nullable=False)
+    recipe = relationship("Recipe", back_populates="steps")

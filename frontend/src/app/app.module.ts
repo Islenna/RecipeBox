@@ -8,6 +8,7 @@ import { RecipeDisplayComponent } from './recipe-display/recipe-display.componen
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { ModalComponent } from './modal/modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashComponent } from './dash/dash.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RecipeFormComponent,
     RecipeDisplayComponent,
     RecipeListComponent,
-    ModalComponent
+    ModalComponent,
+    DashComponent
     
   ],
   imports: [

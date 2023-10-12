@@ -9,6 +9,7 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { ModalComponent } from './modal/modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashComponent } from './dash/dash.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DashComponent } from './dash/dash.component';
     RecipeDisplayComponent,
     RecipeListComponent,
     ModalComponent,
-    DashComponent
+    DashComponent,
+    NavbarComponent
     
   ],
   imports: [

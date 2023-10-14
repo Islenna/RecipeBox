@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+html, body
+    background-color: white // default color for light mode
+    color: black // default text color for light mode
+
+    @media (prefers-color-scheme: dark)
+        background-color: #2a2a2a // color for dark mode
+        color: white // text color for dark mode
+    font-family: 'Patrick Hand', sans-serif // Font family for the app

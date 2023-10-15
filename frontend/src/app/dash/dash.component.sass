@@ -1,0 +1,71 @@
+.container
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100vh
+.chest
+    width: 300px
+    height: 200px
+    position: relative
+    background: red
+    // background: url('/assets/images/wood-texture.jpg')
+    border: 5px solid #6c4b31
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.5)
+    box-sizing: border-box
+    perspective: 1500px  // This creates depth for the 3D transform effect
+
+    &:hover .lid
+        transform: rotateX(110deg)
+        + .latch  // select the latch that is a direct sibling of the hovered lid
+            top: 5px // move it down a bit to make it feel like the latch is moving with the lid
+            
+.lid
+    width: 100%
+    height: 150px // Increased height
+    background: url('/assets/images/wood-texture.jpg')
+    position: absolute
+    top: -100px
+    transform-origin: 50% // Rotate from the bottom edge
+    transition: transform 0.8s ease
+    transform: rotateX(0deg)
+
+    &:hover
+        transform: rotateX(20deg)
+
+
+.body
+    width: 100%
+    height: 100%
+    background: url('/assets/images/wood-texture.jpg')
+    box-sizing: border-box
+
+.latch
+    width: 40px
+    height: 10px
+    background: #6c4b31
+    background-color: gold
+    position: absolute
+    top: -10px // place it at the top center of the chest
+    left: 50%
+    transform: translateX(-50%) // center it horizontally
+    border-radius: 2px
+
+    &:after
+        content: ""
+        width: 20px
+        height: 20px
+        background: #6c4b31
+        position: absolute
+        top: -5px // position it slightly above the latch base
+        left: 50%
+        transform: translateX(-50%)
+        border-radius: 50% // make it circular
+
+.lid-bottom
+    width: 100%
+    height: 100px  // Adjusted height to match the increased height of .lid
+    position: absolute
+    bottom: 0  
+    background: url('/assets/images/wood-texture-lighter.jpg')
+    transform-origin: 50% 100%  // Adjusted rotation point
+    transform: rotateX(90deg)  // Initial rotation adjusted

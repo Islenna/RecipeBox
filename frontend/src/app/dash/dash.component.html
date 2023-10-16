@@ -1,11 +1,12 @@
+<h1>Recipe Box</h1>
 <div class="container">
     <div class="chest">
-        <div class="lid">
-            <div class="lid-bottom">
-
-            </div>
+        
+        <div class="lid" (click)="toggleChest()" [@swingUp]="isLidOpen ? 'open' : 'closed'">
+            <div class="lid-bottom"></div>
         </div>
-        <!-- <div class="latch"></div> -->
+        <div class="contents" [@revealContents]="areContentsVisible ? 'visible' : 'hidden'">
+        </div>
         <div class="body"></div>
     </div>
 </div>

@@ -1,71 +1,85 @@
-.container
-    display: flex
-    justify-content: center
-    align-items: center
-    height: 100vh
-.chest
-    width: 300px
-    height: 200px
-    position: relative
-    background: red
-    // background: url('/assets/images/wood-texture.jpg')
-    border: 5px solid #6c4b31
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.5)
-    box-sizing: border-box
-    perspective: 1500px  // This creates depth for the 3D transform effect
+// Variables (customize according to your needs)
+$lid-color: url('/assets/images/wood-texture-lighter.jpg') // assuming the lid should be lighter
+$body-color: url('/assets/images/wood-texture.jpg')
+$contents-color: #FFFFFF // White for the cards
 
-    &:hover .lid
-        transform: rotateX(110deg)
-        + .latch  // select the latch that is a direct sibling of the hovered lid
-            top: 5px // move it down a bit to make it feel like the latch is moving with the lid
-            
+.container
+    display: flex // enables flexbox
+    justify-content: center // center children horizontally
+    align-items: center // center children vertically
+    height: 100vh // takes full viewport height
+    width: 100vw // takes full viewport width
+    perspective: 800px // necessary for 3D effect
+    position: relative // positions relative to its normal position
+
+.chest
+    position: relative // Define width, height, etc.
+    height: 400px
+    width: 400px
+    transform-style: preserve-3d // Essential for 3D rotation effect
+    position: relative
+    background: $body-color
+    background-size: cover // this will ensure the image covers the entire div
+    transform-style: preserve-3d
+
 .lid
-    width: 100%
-    height: 150px // Increased height
-    background: url('/assets/images/wood-texture.jpg')
+    background: $lid-color
+    background-size: cover
+    height: 200px
+    width: 400px
     position: absolute
-    top: -100px
-    transform-origin: 50% // Rotate from the bottom edge
-    transition: transform 0.8s ease
-    transform: rotateX(0deg)
+    transform-origin: top center
+    cursor: pointer
+
+.contents
+    display: flex
+    flex-direction: column
+    position: relative
+    width: 80% // Adjust to control the size of the cards container
+    max-height: 300px // Adjust based on your preference
+    overflow-y: auto // Allows scrolling through cards
+    align-self: center // Center the contents
+    border-radius: 5px // Optional: for rounded corners
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) // Optional: for some shadow
+    transform: translateY(-50%) // Adjusts the starting position
+    background: transparent // Optional: Set a background color for the "container"
+    padding: 10px // space inside the border, between the border and the contents
+
+.card
+    background: #FFFFFF // Card color, white for the recipe cards
+    padding: 20px // Space between card content and borders
+    margin-bottom: 15px // Space between cards
+    border-radius: 5px // Rounded corners for each card
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) // Small shadow for each card
+    transform: rotateX(10deg) // Slight rotation to create the rolodex effect
+    transition: transform 0.3s
+    &:not(:last-child)
+        margin-bottom: 10px // If it's not the last card, give some space at the bottom
 
     &:hover
-        transform: rotateX(20deg)
+        transform: rotateX(0deg) // Card straightens out on hover
 
+.contents::-webkit-scrollbar
+        width: 10px
+
+.contents::-webkit-scrollbar-track
+    background: #f1f1f1
+
+.contents::-webkit-scrollbar-thumb
+    background: #888
+
+.contents::-webkit-scrollbar-thumb:hover
+    background: #555
 
 .body
-    width: 100%
-    height: 100%
-    background: url('/assets/images/wood-texture.jpg')
-    box-sizing: border-box
+    background-color: transparent
 
-.latch
-    width: 40px
-    height: 10px
-    background: #6c4b31
-    background-color: gold
-    position: absolute
-    top: -10px // place it at the top center of the chest
-    left: 50%
-    transform: translateX(-50%) // center it horizontally
-    border-radius: 2px
+.lid
+    &.swing-up
+        animation: swingUp 2s forwards // "forwards" maintains the final state post-animation
 
-    &:after
-        content: ""
-        width: 20px
-        height: 20px
-        background: #6c4b31
-        position: absolute
-        top: -5px // position it slightly above the latch base
-        left: 50%
-        transform: translateX(-50%)
-        border-radius: 50% // make it circular
-
-.lid-bottom
-    width: 100%
-    height: 100px  // Adjusted height to match the increased height of .lid
-    position: absolute
-    bottom: 0  
-    background: url('/assets/images/wood-texture-lighter.jpg')
-    transform-origin: 50% 100%  // Adjusted rotation point
-    transform: rotateX(90deg)  // Initial rotation adjusted
+.contents
+    &.reveal
+        animation: revealContents 2s forwards
+        opacity: 1
+        transform: translateY(0)
